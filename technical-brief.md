@@ -120,3 +120,36 @@ Foundational work came first. Observability, monitoring, runbooks, and deploymen
 - MTTR stayed stable across 12 to 14 months of phased migration. The foundational work was the reason.
 
 Spin was acquired before the remaining splits shipped. We ran out of time, not conviction.
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+
+<style>
+  .mermaid {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 1.5rem; /* Add padding around diagrams */
+    border-radius: 8px; /* Rounded corners */
+    overflow-x: auto; /* Horizontal scroll for wide diagrams */
+    margin: 1rem 0; /* Spacing above/below diagrams */
+  }
+</style>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mermaidCodeBlocks = document.querySelectorAll('pre code.language-mermaid');
+    mermaidCodeBlocks.forEach(block => {
+      const mermaidDiv = document.createElement('div');
+      mermaidDiv.className = 'mermaid';
+      mermaidDiv.textContent = block.textContent;
+
+      block.parentNode.replaceChild(mermaidDiv, block);
+    });
+
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'default',
+      logLevel: 3
+    });
+  });
+</script>
