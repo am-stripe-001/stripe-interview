@@ -1,0 +1,13 @@
+{
+  "theme": "neutral",
+  "themeVariables": {
+    "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+    "fontSize": "14px"
+  },
+  "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+  "fontSize": 14,
+  "flowchart": {
+    "diagramPadding": 40,
+    "htmlLabels": false
+  }
+}

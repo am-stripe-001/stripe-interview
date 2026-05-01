@@ -1,0 +1,18 @@
+---
+title: Final architecture (regional domain services)
+---
+flowchart TB
+  PH[Phone] --> ALB[App ALB] --> API
+
+  API --> Compliance
+  API --> Payment
+  API --> VM[Vehicle Mgmt]
+  API --> Discovery
+
+  Compliance & Payment --> ADB[(App DB)]
+  VM & Discovery --> VDB[(Vehicle DB)]
+
+  PH -- NFC / BTLE --> Vehicle
+  Vehicle --> NLB[IoT NLB] --> IOT[IoT Gateway]
+  IOT --> VM
+  VM --> Q[Queue] --> W[Workers] --> CC[C & C] --> IOT

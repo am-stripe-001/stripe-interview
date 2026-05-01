@@ -1,0 +1,13 @@
+---
+title: Original architecture (monolith)
+---
+flowchart TB
+  PH[Phone] --> ALB[App ALB]
+  PH -- NFC (Unlock) --> Vehicle
+  IOT -- Cell (Unlock/Command) --> Vehicle
+  ALB --> ACH[Cache Cluster]
+  ACH --> API
+  API --> ADB[(App DB)]
+  API --> Stripe & IDV[ID Vendor] & IOT
+  Vehicle --> NLB --> IOT[IoT Gateway]
+  IOT --> MSG[Messaging Gateway]

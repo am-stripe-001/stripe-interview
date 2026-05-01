@@ -1,0 +1,24 @@
+---
+Title: Spin (Final)
+---
+flowchart TB
+  PH[Phone] --> ALB[App ALB]
+  PH -- BTLE (relay/unlock) <--> Vehicle
+  PH -- NFC (Unlock) --> Vehicle
+  IOT -- Cell (Unlock/Command) --> Vehicle
+  ALB --> ACH[Cache Cluster]
+  ACH --> API
+  API --> Payment & AUTH["Authz|Authn"] & ID[ID Verification] & TRIP[Trip Management] & VM[Vehicle Management] & Discovery & Growth
+  Payment --> Stripe & Adyen & BAL[Balance Management]
+  Compliance  --> CAP[City App]
+  AUTH & ID & Payment & Compliance & Growth --> ADB[(App DB)]
+  API --> CCH[Cache] --> Compliance
+  Vehicle --> NLB --> IOT[IoT Gateway]
+  IOT --> IALB[Internal ALB] -->  VM --> VSQ[Queue] --> VSQW[Workers]
+  TRIP --> VM
+  VSQW --> CCQ[Queue] --> CCQW[Workers] --> CAC[Command & Control]
+  CAC --> IOT
+  VSQW & VM --> VINFO[Vehicle Information]
+  VINFO & Discovery --> VDB[(Vehicle DB)]
+  ID --> IDV[ID Vendor]
+ IOT --> MSG[Messaging Gateway]
